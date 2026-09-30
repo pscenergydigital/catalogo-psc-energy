@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#0b2b4e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="PSC Energy">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<title>PSC Energy · Catálogo de Servicios 2026</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#071c33;overscroll-behavior:none;touch-action:none;user-select:none;font-family:Arial,sans-serif}#app{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}.screen{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .15s ease}.screen.active{opacity:1;visibility:visible}.page{position:relative;width:min(100vw,calc(100vh * .772727));height:min(100vh,calc(100vw * 1.294118));background:#fff;box-shadow:0 0 28px rgba(0,0,0,.35)}.page img{width:100%;height:100%;display:block;object-fit:contain;pointer-events:none}.hotspot{position:absolute;border:0;background:transparent;cursor:pointer;padding:0;touch-action:manipulation;border-radius:12px}.hotspot:focus-visible{outline:3px solid #39b9da;outline-offset:-3px}.hotspot:active{background:rgba(255,122,33,.10)}
+/* Home */
+#values{left:75%;top:27.3%;width:23%;height:7%}
+.card{top:42.3%;width:20.8%;height:13.7%}.r2{top:57.0%}.c1{left:6.1%}.c2{left:28.6%}.c3{left:51.1%}.c4{left:73.4%}
+.back{left:81.5%;top:94.0%;width:15.5%;height:4.5%}
+#status{position:fixed;z-index:20;left:50%;bottom:max(8px,env(safe-area-inset-bottom));transform:translateX(-50%);padding:6px 10px;border-radius:999px;background:rgba(0,0,0,.42);color:#fff;font-size:11px;opacity:0;pointer-events:none;transition:.2s}#status.show{opacity:1}
+</style>
+</head>
+<body>
+<main id="app" aria-label="Catálogo interactivo PSC Energy 2026">
+  <section class="screen active" data-page="1"><div class="page"><img src="assets/page-01.png?v=3" alt="Catálogo PSC Energy 2026"><button id="values" class="hotspot" data-go="2" aria-label="Conocer propósito, visión y valores"></button><button class="hotspot card c1" data-go="3" aria-label="Well Testing"></button><button class="hotspot card c2" data-go="4" aria-label="Tratamiento de gas"></button><button class="hotspot card c3" data-go="5" aria-label="Operación y mantenimiento"></button><button class="hotspot card c4" data-go="6" aria-label="Medición de hidrocarburos"></button><button class="hotspot card r2 c1" data-go="7" aria-label="Construcción de facilidades"></button><button class="hotspot card r2 c2" data-go="8" aria-label="Renta de equipos"></button><button class="hotspot card r2 c3" data-go="9" aria-label="Montaje y calibración"></button><button class="hotspot card r2 c4" data-go="10" aria-label="Grupos electrógenos"></button></div></section>
+  <section class="screen" data-page="2"><div class="page"><img src="assets/page-02.png?v=3" alt="Página 2 del catálogo PSC Energy"><button class="hotspot back" data-go="1" aria-label="Volver al inicio"></button></div></section>
+  <section class="screen" data-page="3"><div class="page"><img src="assets/page-03.png?v=3" alt="Página 3 del catálogo PSC Energy"><button class="hotspot back" data-go="1" aria-label="Volver al inicio"></button></div></section>
+  <section class="screen" data-page="4"><div class="page"><img src="assets/page-04.png?v=3" alt="Página 4 del catálogo PSC Energy"><button class="hotspot back" data-go="1" aria-label="Volver al inicio"></button></div></section>
+  <section class="screen" data-page="5"><div class="page"><img src="assets/page-05.png?v=3" alt="Página 5 del catálogo PSC Energy"><button class="hotspot back" data-go="1" aria-label="Volver al inicio"></button></div></section>
+  <section class="screen" data-page="6"><div class="page"><img src="assets/page-06.png?v=3" alt="Página 6 del catálogo PSC Energy"><button class="hotspot back" data-go="1" aria-label="Volver al inicio"></button></div></section>
+  <section class="screen" data-page="7"><div class="page"><img src="assets/page-07.png?v=3" alt="Página 7 del catálogo PSC Energy"><button class="hotspot back" data-go="1" aria-label="Volver al inicio"></button></div></section>
+  <section class="screen" data-page="8"><div class="page"><img src="assets/page-08.png?v=3" alt="Página 8 del catálogo PSC Energy"><button class="hotspot back" data-go="1" aria-label="Volver al inicio"></button></div></section>
+  <section class="screen" data-page="9"><div class="page"><img src="assets/page-09.png?v=3" alt="Página 9 del catálogo PSC Energy"><button class="hotspot back" data-go="1" aria-label="Volver al inicio"></button></div></section>
+  <section class="screen" data-page="10"><div class="page"><img src="assets/page-10.png?v=3" alt="Página 10 del catálogo PSC Energy"><button class="hotspot back" data-go="1" aria-label="Volver al inicio"></button></div></section>
+</main><div id="status">Navegación solo por botones</div>
+<script>
+const screens=[...document.querySelectorAll('.screen')];
+function show(n){n=Math.max(1,Math.min(10,Number(n)||1));screens.forEach(s=>s.classList.toggle('active',Number(s.dataset.page)===n));history.replaceState({page:n},'',n===1?'#inicio':'#pagina-'+n);}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b)show(b.dataset.go)});
+['touchmove','gesturestart','gesturechange','gestureend'].forEach(evt=>document.addEventListener(evt,e=>e.preventDefault(),{passive:false}));document.addEventListener('wheel',e=>e.preventDefault(),{passive:false});document.addEventListener('keydown',e=>{if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','PageUp','PageDown',' ','Home','End'].includes(e.key))e.preventDefault();if(e.key==='Escape')show(1)});
+const m=location.hash.match(/^#pagina-(\d+)$/);show(m?m[1]:1);
+if('serviceWorker'in navigator&&location.protocol!=='file:')navigator.serviceWorker.register('./service-worker.js').catch(()=>{});
+const st=document.getElementById('status');setTimeout(()=>{st.classList.add('show');setTimeout(()=>st.classList.remove('show'),1600)},400);
+</script></body></html>
