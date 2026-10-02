@@ -1,7 +1,7 @@
 {
   "name":"PSC Energy · Catálogo de Servicios 2026",
   "short_name":"PSC Energy",
-  "start_url":"./#inicio",
+  "start_url":"./",
   "scope":"./",
   "display":"standalone",
   "orientation":"portrait",
